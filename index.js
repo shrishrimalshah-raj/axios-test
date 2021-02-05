@@ -10,7 +10,7 @@ const getCookie = async () => {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   const websiteUrl =
-    "https://www.nseindia.com/get-quotes/derivatives?symbol=NIFTY&identifier=FUTIDXNIFTY25-02-2021XX0.00";
+    "https://www.nseindia.com/market-data/pre-open-market-cm-and-emerge-market";
 
   const response = await page.goto(websiteUrl, {
     // waitUntil: "networkidle2",
@@ -48,12 +48,15 @@ const getFutureData = async () => {
 
   console.log("************ getBankNiftyFutureData API Called ***************");
 
-  const { data } = await axios.get(
+  const response = await axios.get(
     "https://www.nseindia.com/api/liveEquity-derivatives?index=nifty_bank_fut",
     headers
   );
 
-  console.log(data);
+  const head = response.headers;
+  cookie = head["set-cookie"];
+
+  console.log("FUTURE DATA *****", response.data);
 };
 
 const getAPI = async () => {
@@ -72,7 +75,7 @@ const getAPI = async () => {
     },
   };
 
-  console.log("************ getBankNiftyFutureData API Called ***************");
+  console.log("************ getAPI API Called ***************");
 
   const response = await axios.get(
     "https://www.nseindia.com/market-data/equity-derivatives-watch",
@@ -80,13 +83,14 @@ const getAPI = async () => {
   );
 
   const head = response.headers;
-  cookie = head["set-cookie"];
-  // cookie = `${cookie[0]};${cookie[1]};`;
-  console.log(cookie);
+  // cookie = head["set-cookie"];
+  // cookie = `${cookie[1]}`;
+  console.log("getAPI ****", cookie);
 };
 
 (async () => {
   // await getCookie();
-  await getAPI();
+  // await getAPI();
   await getFutureData();
+  await getAPI();
 })();
