@@ -14,24 +14,24 @@ const iPhone11 = devices["iPhone 11 Pro"];
     userAgent:
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
   });
-  page.on("response", (response) =>
-    console.log("<<", response.status(), response.headers())
-  );
+  // page.on("response", (response) =>
+  //   console.log("<<", response.status(), response.headers())
+  // );
   await page.goto(
     "https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY"
   );
 
-  // const nifty = await page.innerText("body");
-  // const niftyJSON = JSON.parse(nifty);
-  // console.log("type of niftyJSON", typeof niftyJSON);
+  const nifty = await page.innerText("body");
+  const niftyJSON = JSON.parse(nifty);
+  console.log("type of niftyJSON", typeof niftyJSON);
 
-  // await page.goto(
-  //   "https://www.nseindia.com/api/option-chain-indices?symbol=BANKNIFTY"
-  // );
+  await page.goto(
+    "https://www.nseindia.com/api/option-chain-indices?symbol=BANKNIFTY"
+  );
 
-  // const niftyBank = await page.innerText("body");
-  // const niftyBankJSON = JSON.parse(niftyBank);
-  // console.log("type of niftyBankJSON", typeof niftyBankJSON);
+  const niftyBank = await page.innerText("body");
+  const niftyBankJSON = JSON.parse(niftyBank);
+  console.log("type of niftyBankJSON", typeof niftyBankJSON);
 
   await browser.close();
 })();
