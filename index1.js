@@ -9,6 +9,8 @@ const iPhone11 = devices["iPhone 11 Pro"];
     locale: "en-US",
     geolocation: { longitude: 73.856743, latitude: 18.52043 },
     permissions: ["geolocation"],
+    userAgent:
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
   });
   const page = await context.newPage({
     userAgent:
