@@ -1,9 +1,9 @@
-const { webkit, devices, chromium } = require("playwright");
+const { webkit, devices, chromium, firefox } = require("playwright");
 const util = require("util");
 const iPhone11 = devices["iPhone 11 Pro"];
 
 (async () => {
-  const browser = await chromium.launch();
+  const browser = await firefox.launch();
   const context = await browser.newContext({
     ...iPhone11,
     locale: "en-US",
