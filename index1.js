@@ -3,7 +3,7 @@ const util = require("util");
 const iPhone11 = devices["iPhone 11 Pro"];
 
 (async () => {
-  const browser = await firefox.launch();
+  const browser = await chromium.launch();
   const context = await browser.newContext({
     ...iPhone11,
     locale: "en-US",
