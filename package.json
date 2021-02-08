@@ -10,9 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "0.21.1",
+    "cheerio": "1.0.0-rc.5",
     "http": "0.0.1-security",
-    "node-fetch": "^2.6.1",
-    "puppeteer": "^7.0.1"
+    "node-fetch": "2.6.1",
+    "playwright": "1.8.0",
+    "puppeteer": "7.0.1"
   }
 }
